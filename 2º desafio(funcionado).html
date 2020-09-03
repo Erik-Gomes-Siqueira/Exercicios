@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplos do Curso</title>
+</head>
+<body>
+
+    <script>
+       
+        var conteinerElement= document.querySelector('body');
+        var ind=0; 
+        //#######################CRIA-O-BOTÃO###################
+        var btnElement= document.createElement('button');
+        btnElement.setAttribute('class', 'btn1');
+        btnElement.innerText= 'Pressione';
+        conteinerElement.appendChild(btnElement);
+        btnElement.addEventListener("click", newElement);
+        //#####################################################
+
+
+
+
+
+        function getRandomColor() {
+            var letters = "0123456789ABCDEF";
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+            };
+            return color;
+        };
+         
+        //###############CRIA-O- QUADRADO-E TROCA A COR############         
+        function newElement(){
+             var boxElement= document.createElement('div');
+            boxElement.setAttribute('id', `box${ind}`);
+            boxElement.style.width='100px';
+            boxElement.style.height='100px';
+            boxElement.style.backgroundColor='#fff';
+            boxElement.style.border='3px solid #000';
+            conteinerElement.appendChild(boxElement); 
+            boxElement.addEventListener("mouseenter", function swithColor(){
+                boxElement.style.backgroundColor= getRandomColor();
+            });
+            ind++;
+        };
+        //##############################################
+
+    </script>
+
+</body>
+</html>
